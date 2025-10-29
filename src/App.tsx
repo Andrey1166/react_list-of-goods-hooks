@@ -25,7 +25,7 @@ export const App: React.FC = () => {
   const [sortType, setSortType] = useState<SortType>(SortType.None);
   const [isReversed, setIsReversed] = useState<boolean>(false);
   let currentList: string[] = [...goodsFromServer];
-  let initialOrder = true;
+  let startOrder = true;
 
   const handleSortByAlphabet = () => {
     setSortType(SortType.ByAlphabet);
@@ -64,7 +64,7 @@ export const App: React.FC = () => {
   }
 
   if (sortType === SortType.None && !isReversed) {
-    initialOrder = false;
+    startOrder = false;
   }
 
   return (
@@ -106,7 +106,7 @@ export const App: React.FC = () => {
           Reverse
         </button>
 
-        {initialOrder === true && (
+        {startOrder === true && (
           <button
             type="button"
             className="button is-danger"
